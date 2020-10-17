@@ -47,6 +47,7 @@ class _AuthFormState extends State<AuthForm> {
                       // TODO go to sign up page
                     },
                     child: Text('Create new account'),
+                    textColor: Theme.of(context).primaryColor,
                   ),
                 ],
               ),
