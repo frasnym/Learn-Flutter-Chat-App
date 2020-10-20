@@ -4,6 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
 class UserImagePicker extends StatefulWidget {
+
+  UserImagePicker(this.imagePickFn);
+  final Function imagePickFn;
+
   @override
   _UserImagePickerState createState() => _UserImagePickerState();
 }
@@ -22,6 +26,7 @@ class _UserImagePickerState extends State<UserImagePicker> {
         print('No image selected.');
       }
     });
+    widget.imagePickFn(pickedImageFile);
   }
 
   @override
@@ -31,7 +36,8 @@ class _UserImagePickerState extends State<UserImagePicker> {
         CircleAvatar(
           radius: 40,
           backgroundColor: Colors.grey,
-          backgroundImage: _pickedImage != null ? FileImage(_pickedImage) : null,
+          backgroundImage:
+              _pickedImage != null ? FileImage(_pickedImage) : null,
         ),
         FlatButton.icon(
           onPressed: _pickImage,
