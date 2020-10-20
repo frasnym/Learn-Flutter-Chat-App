@@ -33,8 +33,6 @@ class _AuthScreenState extends State<AuthScreen> {
     bool isLogin,
     BuildContext ctx,
   ) async {
-    print('password-$password');
-    print('email-$email');
     
     UserCredential authResult;
 
