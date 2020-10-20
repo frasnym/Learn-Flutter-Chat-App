@@ -28,13 +28,15 @@ class _AuthScreenState extends State<AuthScreen> {
 
   void _submitAuthForm(
     String email,
-    String password,
     String username,
+    String password,
     bool isLogin,
     BuildContext ctx,
   ) async {
+    print('password-$password');
+    print('email-$email');
+    
     UserCredential authResult;
-    print('authResult-$authResult');
 
     try {
       setState(() {
