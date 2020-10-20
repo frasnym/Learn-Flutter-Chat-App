@@ -28,8 +28,13 @@ class _AuthFormState extends State<AuthForm> {
 
     if (isValid) {
       _formKey.currentState.save();
-      widget.submitFn(_userEmail, _userName, _userPassword, _isLogin);
-      //TODO User those value to send our auth request....
+      widget.submitFn(
+        _userEmail.trim(),
+        _userName,
+        _userPassword,
+        _isLogin,
+        context,
+      );
     }
   }
 
@@ -48,6 +53,7 @@ class _AuthFormState extends State<AuthForm> {
                 children: <Widget>[
                   TextFormField(
                     key: ValueKey('email'),
+                    initialValue: 'test@test.com',
                     validator: (value) {
                       if (value.isEmpty || !value.contains('@')) {
                         return 'Please enter a valid email address';
@@ -64,6 +70,7 @@ class _AuthFormState extends State<AuthForm> {
                   ),
                   if (!_isLogin)
                     TextFormField(
+                      initialValue: 'frezzmice',
                       key: ValueKey('username'),
                       validator: (value) {
                         if (value.isEmpty || value.length < 4) {
@@ -80,6 +87,7 @@ class _AuthFormState extends State<AuthForm> {
                     ),
                   TextFormField(
                     key: ValueKey('password'),
+                    initialValue: '1234567',
                     validator: (value) {
                       if (value.isEmpty || value.length < 7) {
                         return 'Password must be at least 7 characters long';
