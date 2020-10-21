@@ -26,7 +26,7 @@ class _UserImagePickerState extends State<UserImagePicker> {
         print('No image selected.');
       }
     });
-    widget.imagePickFn(pickedImageFile);
+    widget.imagePickFn(_pickedImage);
   }
 
   @override
